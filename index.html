@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal Hati</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b2345;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 2px, transparent 3px),
+                        radial-gradient(rgba(255,255,255,0.05) 2px, transparent 3px);
+      background-position: 0 0, 15px 15px;
+      background-size: 30px 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff69b4;
+      font-size: 2rem;
+      text-shadow: 1px 1px 3px #a02a6e;
+      min-height: 50px;
+    }
+
+    .typewriter span {
+      border-right: 2px solid #ff69b4;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #ff69b4; }
+    }
+
+    p.tagline {
+      color: #ffffffcc;
+      font-style: italic;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+
+    .login-box {
+      background-color: white;
+      padding: 35px 40px 50px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      width: 340px;
+      color: #0b2345;
+      position: relative;
+      overflow: visible;
+    }
+
+    .login-box img.bear {
+      width: 80px;
+      position: absolute;
+      bottom: -50px;
+      left: 10px;
+    }
+
+    .login-box img.balloon {
+      width: 60px;
+      position: absolute;
+      top: -45px;
+      right: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    form {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #0b2345;
+      border-radius: 8px;
+      outline-color: #ff69b4;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0559b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="typewriter"><span id="typewriter-text"></span></h1>
+  <p class="tagline">Here's! Fill your heart with words.</p>
+
+  <div class="login-box">
+    <img class="bear" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Beruang" />
+    <img class="balloon" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Balon Love" />
+
+    <form action="https://formspree.io/f/xldnkqek" method="POST">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Tulis pesanmu di sini..." required></textarea>
+      <input type="hidden" name="_redirect" value="thankyou.html" />
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <script>
+    const text = "Welcome to Portal Hati...";
+    const target = document.getElementById("typewriter-text");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        target.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 90);
+      }
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
